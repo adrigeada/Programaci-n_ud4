@@ -5,11 +5,8 @@ import java.util.Scanner;
 
 public class Ejercicio4 {
     static void main() {
-        Scanner teclado = new Scanner(System.in);
 
         System.out.println("Bienvenido al bar de Javier");
-//        System.out.println("Cuantas semanas vas a evaluar?");
-//        int vueltas = teclado.nextInt();
 
             double[] dia = rellenarVector();
 
@@ -21,9 +18,12 @@ public class Ejercicio4 {
         System.out.println("El día con mas ventas es: "+ masVentas(dia));
         System.out.println("El día con menos ventas es: " +menosVentas(dia));
         System.out.println("La media de toda la semana es: "+ mediaSemanal(dia)+ "€");
-        System.out.println("La recaudacion del domingo es: "+recaudacionDomingo(dia));
-
-
+        System.out.println("La recaudacion del domingo es: "+recaudacionDomingo(dia)+"€");
+        if (recaudacionDomingo(dia) > mediaSemanal(dia)){
+            System.out.println("SI");
+        }else {
+            System.out.println("NO");
+        }
 
 
 
@@ -130,12 +130,12 @@ public class Ejercicio4 {
 
     public static double recaudacionDomingo(double[] dia){
 
-        double media = 0;
+        double domingo = 0;
 
-        media = dia[dia.length-1];
+        domingo = dia[dia.length-1];
 
 
-        return media;
+        return domingo;
 
     }
 
