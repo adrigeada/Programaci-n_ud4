@@ -56,7 +56,7 @@ class Problema196Test {
                                 {"1","1","1","1","1","1","1","1","-"}};
 
         assertFalse(Problema196.checkSimetria(tablaMal));
-        
+
 
     }
 }
