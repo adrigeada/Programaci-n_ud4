@@ -85,7 +85,7 @@ public class ProyectoJuez {
         for (int i = 0; i < tabla.length / 2; i++) {
 
             for (int j = 0; j < tabla[i].length; j++) {
-                
+
                 if (tabla[i][j].equals("-")){
                     arriba= true;
                 }else {
