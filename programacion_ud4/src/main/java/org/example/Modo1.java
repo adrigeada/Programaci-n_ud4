@@ -14,7 +14,7 @@ public class Modo1 {
         for (int i = 0; i < numCasos; i++){
             casoDePrueba();
         }
-            
+
     }
 
     public static void casoDePrueba() {
