@@ -8,11 +8,9 @@ public class ProyectoJuez {
 
     public static void main(String[] args) {
 
-        int numCasos = teclado.nextInt();
-        System.out.println(" ");
+        int numCasos = Integer.parseInt(teclado.nextLine());
         for (int i = 0; i < numCasos; i++){
             casoDePrueba();
-            System.out.println(" ");
         }
 
     }
@@ -38,7 +36,7 @@ public class ProyectoJuez {
 
         String[][] tabla = new String[9][9];
 
-
+    teclado.nextLine();
         for (int i = 0; i < tabla.length; i++) {
 
             String[] linea = teclado.next().split("");
@@ -68,7 +66,7 @@ public class ProyectoJuez {
             }
 
         }
-        if (contadorNum < 32){
+        if (contadorNum <= 32){
             return true;
         }else{
             return false;
@@ -77,35 +75,25 @@ public class ProyectoJuez {
     }
 
     public static boolean checkSimetria(String[][] tabla){
-        boolean arriba = false;
-        boolean abajo = false;
+
         boolean simetria = true;
 
         fuera:
-        for (int i = 0; i < tabla.length / 2; i++) {
+        for (int i = 0; i < tabla.length; i++) {
 
             for (int j = 0; j < tabla[i].length; j++) {
 
-                if (tabla[i][j].equals("-")){
-                    arriba= true;
-                }else {
-                    arriba=false;
-                }
-                if (tabla[8-i][8-j].equals("-")){
-                    abajo = true;
-                }else {
-                    abajo=false;
-                }
+               boolean arriba = tabla[i][j].equals("-");
+               boolean abajo = tabla [8-i][8-j].equals("-");
 
-                if (arriba!= abajo){
-                    simetria = false;
-                    break fuera;
-                }
+               if (arriba!= abajo){
+                   return false;
+               }
 
             }
         }
 
-        return simetria;
+        return true;
     }
 
 
