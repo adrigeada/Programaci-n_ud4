@@ -40,10 +40,10 @@ public class EjerciciosRecursividad {
                 System.out.println(ej2(3,4));
                 break;
             case '3':
-
+                ej3(1234);
                 break;
             case '4':
-
+                ej4(1020);
                 break;
             case '5':
 
@@ -95,15 +95,27 @@ public class EjerciciosRecursividad {
 
     }
 
-    static int ej3 (int num){
+    static void ej3 (int num){
 
         if (num < 10){
-            return num;
+            System.out.println(num);
         }else {
-            num = num%10;
-            return ej3(num/10);
+            System.out.print(num % 10);
+            ej3(num/10);
         }
         
+    }
+
+    static void ej4 (int num){
+
+        if (num % 10 != 0 && num % 10 != 1){
+            System.out.println("No binario");
+        }else if (num > 10){
+            ej4(num/10);
+        }else {
+            System.out.println("Binario");
+        }
+
     }
 
 }
