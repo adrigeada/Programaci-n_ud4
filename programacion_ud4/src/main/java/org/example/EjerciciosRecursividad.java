@@ -30,25 +30,51 @@ public class EjerciciosRecursividad {
 
     public static void elegir_opcion(){
 
-        char modo = teclado.next().charAt(0);
+        char modo = Character.toUpperCase(teclado.next().charAt(0));
+
+        int num = 0;
+        String cadena = "";
 
         switch (modo){
 
             case '1':
-                System.out.println(ej1(4561));
-                break;
-            case '2':
-                System.out.println(ej2(3,4));
-                break;
-            case '3':
-                ej3(1234);
-                String frase = "Frase al reves";
-                char[] frase_char = frase.toCharArray();
-                ej3String(frase_char.length-1, frase_char);
+                System.out.println("Escribe el número del que quieres contar las cifras");
+                num = teclado.nextInt();
+                System.out.println(ej1(num));
 
                 break;
+            case '2':
+                System.out.println("Escribe el número y el exponente ");
+                num = teclado.nextInt();
+                int exponente = teclado.nextInt();
+                System.out.println(ej2(num,exponente));
+                break;
+
+            case '3':
+                System.out.println("Pulsa 1 para número al revés o 2 para frase al revés");
+                int ej3 = teclado.nextInt();
+
+                switch (ej3){
+                    case 1:
+                        System.out.println("Escribe el número");
+                        num= teclado.nextInt();
+                        ej3(num);
+                        break;
+                    case 2:
+                        teclado.nextLine();
+                        System.out.println("Escribe la frase");
+                        cadena= teclado.nextLine();
+                        char[] frase_char = cadena.toCharArray();
+                        ej3String(frase_char.length-1, frase_char);
+                        break;
+                }
+                break;
+
             case '4':
-                if (ej4(1020)){
+                System.out.println("Escribe el numero para comprobar si es binario o no");
+                num = teclado.nextInt();
+
+                if (ej4(num)){
                     System.out.println("Binario");
                 }else {
                     System.out.println("No binario");
@@ -56,13 +82,27 @@ public class EjerciciosRecursividad {
 
                 break;
             case '5':
-                System.out.println(ej5(9));
+                System.out.println("Escribe el numero que quieres pasar a binario");
+                num = teclado.nextInt();
+                System.out.println(ej5(num));
 
                 break;
             case '6':
+                System.out.println("Escribe una palabra para comprobar si está ordenada alfabéticamente");
+                cadena= teclado.next();
 
+                if (ej6(0,cadena)){
+                    System.out.println("Ordenada");
+                }else {
+                    System.out.println("Desordenada");
+                }
                 break;
+
             case '7':
+                System.out.println("Escribe el número hasta el que quieres sumar");
+                num = teclado.nextInt();
+
+                System.out.println(ej7(num,num));
 
                 break;
 
@@ -76,7 +116,7 @@ public class EjerciciosRecursividad {
         System.out.println("[M] - Volver al menú principal");
         System.out.println("[X] - Salir");
 
-        char opcion = teclado.next().charAt(0);
+        char opcion = Character.toUpperCase(teclado.next().charAt(0));
 
         if (opcion == 'M') {
             main();
@@ -153,6 +193,43 @@ public class EjerciciosRecursividad {
         }else {
             return ej5(num/2)+ num%2; //se concatena el resto
 
+        }
+
+    }
+
+    public static boolean ej6 (int posicion,String palabra){
+
+        if (posicion == palabra.length()-1){
+            return true;
+        }else {
+
+            if (palabra.charAt(posicion) < palabra.charAt(posicion+1)){
+               return ej6(posicion+1,palabra);
+            }else {
+                return false;
+            }
+
+        }
+
+    }
+
+    public static String ej7 (int num, int limite){
+        int suma = sumaej7(num);
+
+        if (num == 1){
+            return (num)+ "+";
+        }else if (num == limite){
+            return ej7(num-1,limite)+(num)+ "=" + (suma);
+        }else {
+            return ej7(num-1,limite)+(num)+ "+";
+        }
+
+    }
+    public static int sumaej7 (int num){
+        if (num==1){
+            return num;
+        }else {
+            return num+sumaej7(num-1);
         }
 
     }
