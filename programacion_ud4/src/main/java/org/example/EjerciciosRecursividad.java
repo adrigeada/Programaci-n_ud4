@@ -107,6 +107,8 @@ public class EjerciciosRecursividad {
                 break;
 
             default:
+                System.out.println("Modo elegido no váldio");
+
         }
 
     }
